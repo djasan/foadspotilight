@@ -1,0 +1,171 @@
+/* Importation des fonts */
+@font-face {
+    font-family: "rbtfr";
+    src: url(../Roboto-ThinItalic.ttf);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "rbtfr", serif;
+}
+
+/* Pour chaque conteneur d'image et de texte */
+.slider-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Pour les images */
+.image {
+    flex: 1;
+    padding-right: 10cm;
+    overflow: -moz-hidden-unscrollable;
+}
+
+/* Pour les textes */
+.text {
+    flex: 1;
+    font-size: smaller;
+    color: aquamarine;
+    font-weight: 300;
+}
+
+/* Styles for the slider container */
+.slider-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Effet éventail au survol */
+.slider-container:hover {
+    transform: scale(1.1);
+}
+
+/* Styles for the slider */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Styles for the slider */
+.slider {
+    display: flex;
+    transition: transform 0.5s;
+}
+
+/* Styles for individual slider items */
+.slider-item {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Styles for the image within the slider item */
+.slider-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Add a style to highlight the active image during scrolling */
+.slider-item.active {
+    border: 2px solid #ff0000; /* Example of a red border */
+    /* Other styles to highlight the active image */
+}
+
+/* Styles for the text overlay */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: #fff; /* Text color */
+    padding: 10px;
+}
+
+/* Style for the control buttons (e.g., Next and Previous) */
+.control {
+    cursor: pointer;
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.control-prev {
+    left: 10px;
+}
+
+.control-next {
+    right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+img,
+input {
+    width: 100%;
+}
+
+
+
+
+
+
+/* Style pour le texte */
+.slider-container .text {
+    flex: 1;
+    /* Le texte prend le reste de l'espace disponible */
+}
+
+/* Style pour les titres */
+.slider-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style pour les paragraphes de texte */
+.slider-container p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/*  Pour appeler un element HTML dans un selecteur j'utilise son nom */
+nav {
+    display: flex;
+    /* Pour gerer l'alignement vertical des enfants de ma nav j' utilise align-items: ; */
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 11px 5px -6px rgba(0, 0, 0, 0.76);
+    -webkit-box-shadow: 0px 11px 5px -6px rgba(0, 0, 0, 0.76);
+    -moz-box-shadow: 0px 11px 5px -6px rgba(0, 0, 0, 0.76);
+    background-color: rgba(255, 255, 255, 0.854);
+    /* Le z-index ne fonctionne pas avec
+  une position static(position par defaut) */
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 40px;
+    top: 0;
+}
