@@ -1,37 +1,50 @@
-import { catalogue } from "./catalogue";
 
-const slider = document.getElementById('slider');
-const prevButton = document.getElementById('left'); // Renommé en "left" pour correspondre à l'ID de votre bouton
-const nextButton = document.getElementById('right'); // Renommé en "right" pour correspondre à l'ID de votre bouton
-let currentIndex = 0;
-
-function updateSlider() {
-  slider.innerHTML = `
-    <div class="slider-item">
-      <img src="${catalogue[currentIndex].url}" alt="${catalogue[currentIndex].title}">
-      <div class="text-overlay">
-        <h3>${catalogue[currentIndex].title}</h3>
-        <p>${catalogue[currentIndex].description}</p>
-      </div>
-    </div>
-  `;
+const coverUrl = "./assets/img/cover/";
+const initSlider = () => {
+    // je cree une première image d'arriere plan fixe
+    const coverSlider = document.createElement("img");
+    coverSlider.src = coverUrl + catalogue[currentTrack].cover;
+    coverSlider.id = "coverSlider";
+    sliderHTML.append(coverSlider);
+    // je cree une deuxieme image supperposée destiné à l'effet(transform)
+    const imgA = document.createElement("img");
+    imgA.src = coverUrl + catalogue[currentTrack].cover;
+    imgA.id = "imgA";
+    sliderHTML.append(imgA);
+}
+const nextSlider=()=>{
+    document.querySelector("#coverSlider").src = coverUrl + catalogue[currentTrack].cover;
+    document.querySelector("#imgA").classList.add("transSlider","slideRight");
+    setTimeout(()=>{
+        document.querySelector("#imgA").src = coverUrl + catalogue[currentTrack].cover;
+        document.querySelector("#imgA").classList.remove("transSlider","slideRight");
+    },500)
+    
+}
+const prevSlider=()=>{
+    document.querySelector("#coverSlider").src = coverUrl + catalogue[currentTrack].cover;
+    document.querySelector("#imgA").classList.add("transSlider","slideLeft");
+    setTimeout(()=>{
+        document.querySelector("#imgA").src = coverUrl + catalogue[currentTrack].cover;
+        document.querySelector("#imgA").classList.remove("transSlider","slideLeft");
+    },500)
+    
 }
 
-function nextSlide() {
-  currentIndex = (currentIndex + 1) % catalogue.length;
-  updateSlider();
-}
+const slider = (status = "init") => {
+    switch (status) {
+        case "init":
+            initSlider();
+            break;
+        case "next":
+            nextSlider();
+            break;
+        case "prev":
+            prevSlider();
+            break;
+        default:
+            break;
+    }
+};
 
-function prevSlide() {
-  currentIndex = (currentIndex - 1 + catalogue.length) % catalogue.length;
-  updateSlider();
-}
-
-nextButton.addEventListener('click', nextSlide);
-prevButton.addEventListener('click', prevSlide);
-
-// Automatically change the slide every 4 seconds
-setInterval(nextSlide, 4000);
-
-// Initial slider setup
-updateSlider();
+export { slider };
