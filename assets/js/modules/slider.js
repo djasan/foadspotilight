@@ -1,34 +1,35 @@
-
 const coverUrl = "./assets/img/cover/";
+let currentTrack = 0; // Commencer avec la première diapositive
 const initSlider = () => {
-    // je cree une première image d'arriere plan fixe
+    // Créez une première image d'arrière-plan fixe
     const coverSlider = document.createElement("img");
-    coverSlider.src = coverUrl + catalogue[currentTrack].cover;
+  
     coverSlider.id = "coverSlider";
     sliderHTML.append(coverSlider);
-    // je cree une deuxieme image supperposée destiné à l'effet(transform)
-    const imgA = document.createElement("img");
-    imgA.src = coverUrl + catalogue[currentTrack].cover;
-    imgA.id = "imgA";
-    sliderHTML.append(imgA);
+
+    // Créez une deuxième image superposée destinée à l'effet de transition
+    const image0 = document.createElement("img");
+   
+    image0.id = "image0";
+    sliderHTML.append(image0);
 }
-const nextSlider=()=>{
+
+const nextSlider = () => {
     document.querySelector("#coverSlider").src = coverUrl + catalogue[currentTrack].cover;
-    document.querySelector("#imgA").classList.add("transSlider","slideRight");
-    setTimeout(()=>{
-        document.querySelector("#imgA").src = coverUrl + catalogue[currentTrack].cover;
-        document.querySelector("#imgA").classList.remove("transSlider","slideRight");
-    },500)
-    
+    document.querySelector("#image0").classList.add("transSlider", "slideRight");
+    setTimeout(() => {
+        document.querySelector("#image0").src = coverUrl + catalogue[currentTrack].cover;
+        document.querySelector("#image0").classList.remove("transSlider", "slideRight");
+    }, 500);
 }
-const prevSlider=()=>{
+
+const prevSlider = () => {
     document.querySelector("#coverSlider").src = coverUrl + catalogue[currentTrack].cover;
-    document.querySelector("#imgA").classList.add("transSlider","slideLeft");
-    setTimeout(()=>{
-        document.querySelector("#imgA").src = coverUrl + catalogue[currentTrack].cover;
-        document.querySelector("#imgA").classList.remove("transSlider","slideLeft");
-    },500)
-    
+    document.querySelector("#image0").classList.add("transSlider", "slideLeft");
+    setTimeout(() => {
+        document.querySelector("#image0").src = coverUrl + catalogue[currentTrack].cover;
+        document.querySelector("#image0").classList.remove("transSlider", "slideLeft");
+    }, 500);
 }
 
 const slider = (status = "init") => {

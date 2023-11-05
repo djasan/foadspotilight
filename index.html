@@ -4,9 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="./assets/js/script.js"></script>
-    <script type="module" src="./assets/js/modules/slider.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"
+        integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="module" src="./assets/js/script.js" defer></script>
+        <script type="module" src="./assets/js/modules/slider.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+       
+
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Slider Project</title>
 </head>
 
@@ -19,18 +28,20 @@
 
     <div class="slider-container">
         <div class="slider" id="slider">
-            <div id="navigation">
-                <div id="prev">
-                    <img src="./assets/img/step-backward-solid.svg" alt="Previous">
-                </div>
-              
-                <div id="next">
-                    <img src="./assets/img/step-forward-solid.svg" alt="Next">
-                </div>
-            </div>
             <!-- Les éléments du slider seront ajoutés dynamiquement ici -->
         </div>
+
+        <div id="navigation">
+            <div id="prevButton">
+                <img src="./assets/img/step-backward-solid.svg" alt="Previous">
+            </div>
+
+            <div id="nextButton">
+                <img src="./assets/img/step-forward-solid.svg" alt="Next">
+            </div>
+        </div>
     </div>
+
 </body>
 
 </html>
